@@ -6,7 +6,7 @@ body {
 
 .sidebar {
     height: 100%;
-    width: 250px;
+    width: 150px;
     position: fixed;
     top: 0;
     left: 0;
@@ -21,6 +21,7 @@ body {
 }
 
 .sidebar h2 {
+    margin-top: 2rem;
     color: white;
     text-align: center;
 }
@@ -58,8 +59,8 @@ body {
 }
 
 .main-content {
-    margin-top: 20px;
-    padding: 16px;
+    margin-top: 3rem;
+    padding: 30px;
     transition: margin-left 0.3s;
 }
 
@@ -69,7 +70,7 @@ body {
     padding: 10px 20px;
     position: fixed;
     top: 0;
-    width: calc(100% - 250px);
+    width: calc(100%);
     z-index: 1000;
     display: flex;
     align-items: center;
@@ -102,14 +103,25 @@ body {
     justify-content: space-around;
 }
 
-.data-table {
-    border-collapse: collapse;
-    width: 500px;
-    height: 300px;
-    text-align: center;
+
+#piChart {
+    flex: 1;
 }
 
-.data-table th, .data-table td {
-    border: 1px solid black;
-    padding: 8px;
+#tableContainer {
+    flex: 1;
+}
+
+#dataTable {
+    margin-top: 10px;
+}
+
+#defectPeriod {
+    display: inline;
+    float:right;
+    
+}
+
+.chartTitle {
+    margin-bottom: 2rem;
 }

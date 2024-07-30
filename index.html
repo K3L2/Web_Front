@@ -4,9 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인 페이지</title>
-    <link rel="stylesheet" href="styles.css">
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- ECharts 라이브러리 추가 -->
     <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    
 </head>
 <body>
      <!-- 상단 메뉴 바 -->
@@ -26,277 +33,72 @@
 
     <div id="main-content" class="main-content">
         <div id="section1">
-            <h1>첫 번째 단락</h1>
-            <p>여기에 첫 번째 단락 내용이 들어갑니다.</p>
+            <h1 class="chartTitle">주간 불량 개수 및 비율</h1>
+            <!-- <p>여기에 첫 번째 단락 내용이 들어갑니다.</p> -->
             <!-- 동적 그래프를 표시할 div 추가 -->
-            <div id="dynamic-chart" style="width: 600px; height: 400px;"></div>
+            <div id="dynamic-chart" style="width: 1000px; height: 500px;"></div>
         </div>
-        <div id="piChart">
-            <h1>두 번째 단락</h1>
-            <p>여기에 두 번째 단락 내용이 들어갑니다.</p>
+        <div id="">
+            <h1 class="chartTitle">이번 주 불량 개수 및 비율</h1>
+            <!-- <p>여기에 두 번째 단락 내용이 들어갑니다.</p> -->
             <div class="chart-table-container">
                 <!-- 원형 차트를 표시할 div -->
-                <div id="chart" style="width: 300px; height: 300px;"></div>
+                <div id="piChart" style="width: 500px; height: 350px;">
+
+                </div>
                 <!-- 테이블을 추가 -->
-                <table class="data-table">
-                    <thead>
-                        <tr>
-                            <th>Header 1</th>
-                            <th>Header 2</th>
-                            <th>Header 3</th>
-                            <th>Header 4</th>
-                            <th>Header 5</th>
-                            <th>Header 6</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Data 1</td>
-                            <td>Data 2</td>
-                            <td>Data 3</td>
-                            <td>Data 4</td>
-                            <td>Data 5</td>
-                            <td>Data 6</td>
-                        </tr>
-                        <tr>
-                            <td>Data 7</td>
-                            <td>Data 8</td>
-                            <td>Data 9</td>
-                            <td>Data 10</td>
-                            <td>Data 11</td>
-                            <td>Data 12</td>
-                        </tr>
-                        <tr>
-                            <td>Data 13</td>
-                            <td>Data 14</td>
-                            <td>Data 15</td>
-                            <td>Data 16</td>
-                            <td>Data 17</td>
-                            <td>Data 18</td>
-                        </tr>
-                        <tr>
-                            <td>Data 19</td>
-                            <td>Data 20</td>
-                            <td>Data 21</td>
-                            <td>Data 22</td>
-                            <td>Data 23</td>
-                            <td>Data 24</td>
-                        </tr>
-                        <tr>
-                            <td>Data 25</td>
-                            <td>Data 26</td>
-                            <td>Data 27</td>
-                            <td>Data 28</td>
-                            <td>Data 29</td>
-                            <td>Data 30</td>
-                        </tr>
-                    </tbody>
-                </table>
+                 <div id="tableContainer">
+                    <div>
+                        <h3 style="display: inline-block;">주간 불량 순위</h3>
+                        <h6 class="text-secondary" id="defectPeriod">20240729 ~ 20240804</h6>
+                    </div>
+                    <table id="dataTable" class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">순위</th>
+                            <th scope="col">에러 코드</th>
+                            <th scope="col">비율</th>
+                            <th scope="col">총 개수</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">1</th>
+                            <td>패턴 불량</td>
+                            <td>50%</td>
+                            <td>500</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">2</th>
+                            <td>잉크 불량</td>
+                            <td>25%</td>
+                            <td>250</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">3</th>
+                            <td>스크래치 불량</td>
+                            <td>15%</td>
+                            <td>150</td>
+                          </tr>
+                          <tr>
+                            <th scope="row">4</th>
+                            <td>금도금 불량</td>
+                            <td>10%</td>
+                            <td>100</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                 </div>
             </div>
         </div>
     </div>
 
     <script src="script.js"></script>
+    
     <!-- 동적 그래프 ECharts 초기화 스크립트 -->
-    <script>
-        const categories = (function () {
-            let now = new Date();
-            let res = [];
-            let len = 10;
-            while (len--) {
-                res.unshift(now.toLocaleTimeString().replace(/^\D*/, ''));
-                now = new Date(+now - 2000);
-            }
-            return res;
-        })();
-        
-        const categories2 = (function () {
-            let res = [];
-            let len = 10;
-            while (len--) {
-                res.push(10 - len - 1);
-            }
-            return res;
-        })();
-        
-        const data = (function () {
-            let res = [];
-            let len = 10;
-            while (len--) {
-                res.push(Math.round(Math.random() * 1000));
-            }
-            return res;
-        })();
-        
-        const data2 = (function () {
-            let res = [];
-            let len = 0;
-            while (len < 10) {
-                res.push(+(Math.random() * 10 + 5).toFixed(1));
-                len++;
-            }
-            return res;
-        })();
-        
-        var dynamicChartDom = document.getElementById('dynamic-chart');
-        var dynamicChart = echarts.init(dynamicChartDom);
-        var dynamicOption = {
-            title: {
-                text: 'Dynamic Data'
-            },
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'cross',
-                    label: {
-                        backgroundColor: '#283b56'
-                    }
-                }
-            },
-            legend: {},
-            toolbox: {
-                show: true,
-                feature: {
-                    dataView: { readOnly: false },
-                    restore: {},
-                    saveAsImage: {}
-                }
-            },
-            dataZoom: {
-                show: false,
-                start: 0,
-                end: 100
-            },
-            xAxis: [
-                {
-                    type: 'category',
-                    boundaryGap: true,
-                    data: categories
-                },
-                {
-                    type: 'category',
-                    boundaryGap: true,
-                    data: categories2
-                }
-            ],
-            yAxis: [
-                {
-                    type: 'value',
-                    scale: true,
-                    name: 'Price',
-                    max: 30,
-                    min: 0,
-                    boundaryGap: [0.2, 0.2]
-                },
-                {
-                    type: 'value',
-                    scale: true,
-                    name: 'Order',
-                    max: 1200,
-                    min: 0,
-                    boundaryGap: [0.2, 0.2]
-                }
-            ],
-            series: [
-                {
-                    name: 'Dynamic Bar',
-                    type: 'bar',
-                    xAxisIndex: 1,
-                    yAxisIndex: 1,
-                    data: data
-                },
-                {
-                    name: 'Dynamic Line',
-                    type: 'line',
-                    data: data2
-                }
-            ]
-        };
-        
-        dynamicChart.setOption(dynamicOption);
-        
-        var app = {};
-        app.count = 11;
-        
-        setInterval(function () {
-            let axisData = new Date().toLocaleTimeString().replace(/^\D*/, '');
-            data.shift();
-            data.push(Math.round(Math.random() * 1000));
-            data2.shift();
-            data2.push(+(Math.random() * 10 + 5).toFixed(1));
-            categories.shift();
-            categories.push(axisData);
-            categories2.shift();
-            categories2.push(app.count++);
-            
-            dynamicChart.setOption({
-                xAxis: [
-                    {
-                        data: categories
-                    },
-                    {
-                        data: categories2
-                    }
-                ],
-                series: [
-                    {
-                        data: data
-                    },
-                    {
-                        data: data2
-                    }
-                ]
-            });
-        }, 2100);
-    </script>
+    <script src="bar_chart.js"></script>
+    
     <!-- 원형 차트 ECharts 초기화 스크립트 -->
-    <script>
-        var chartDom = document.getElementById('chart');
-        var myChart = echarts.init(chartDom);
-        var option = {
-            tooltip: {
-                trigger: 'item'
-            },
-            legend: {
-                top: '5%',
-                left: 'center'
-            },
-            series: [
-                {
-                    name: 'Access From',
-                    type: 'pie',
-                    radius: ['40%', '70%'],
-                    avoidLabelOverlap: false,
-                    itemStyle: {
-                        borderRadius: 10,
-                        borderColor: '#fff',
-                        borderWidth: 2
-                    },
-                    label: {
-                        show: false,
-                        position: 'center'
-                    },
-                    emphasis: {
-                        label: {
-                            show: true,
-                            fontSize: 40,
-                            fontWeight: 'bold'
-                        }
-                    },
-                    labelLine: {
-                        show: false
-                    },
-                    data: [
-                        { value: 1048, name: 'Search Engine' },
-                        { value: 735, name: 'Direct' },
-                        { value: 580, name: 'Email' },
-                        { value: 484, name: 'Union Ads' },
-                        { value: 300, name: 'Video Ads' }
-                    ]
-                }
-            ]
-        };
-        myChart.setOption(option);
-    </script>
+    <script src="pi_chart.js"></script>
 </body>
 </html>
