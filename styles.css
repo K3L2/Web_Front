@@ -125,3 +125,7 @@ body {
 .chartTitle {
     margin-bottom: 2rem;
 }
+
+#alarm {
+    margin-left: 1rem;
+}
