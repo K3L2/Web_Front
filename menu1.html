@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메뉴 1 페이지</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="sidebar" class="sidebar">
+        <button class="close-btn" onclick="toggleSidebar()">&#10006;</button>
+        <h2>메뉴</h2>
+        <ul>
+            <li><a href="index.html">메인 페이지</a></li>
+            <li><a href="menu1.html">메뉴 1</a></li>
+            <li><a href="menu2.html">메뉴 2</a></li>
+        </ul>
+    </div>
+
+    <div id="main-content" class="main-content">
+        <button class="open-btn" onclick="toggleSidebar()">&#9776; 메뉴</button>
+        <div id="section1">
+            <h1>메뉴 1 페이지</h1>
+            <p>여기는 메뉴 1의 내용이 들어갑니다.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
