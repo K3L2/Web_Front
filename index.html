@@ -33,16 +33,16 @@
 
     <div id="main-content" class="main-content">
         <div id="section1" style="display: flex;">
-            <div>
+            <div style="width: 70%">
                 <h1 class="chartTitle">주간 불량 개수 및 비율</h1>
-                <div id="dynamic-chart" style="width: 1000px; height: 500px;"></div>
+                <div id="dynamic-chart" style="width: 100%; height: 100%;"></div>
             </div>
             
             <!-- <p>여기에 첫 번째 단락 내용이 들어갑니다.</p> -->
             <!-- 동적 그래프를 표시할 div 추가 -->
 
             <div id="alarm">
-                <h1 class="chartTitle">
+                <h1 class="chartTitle" style="text-align: center;">
                     공정 상태 온도계
                 </h1>
                 <div id="gaugeChart" style="width: 500px; height: 500px"></div>
@@ -58,7 +58,7 @@
                 <!-- 테이블을 추가 -->
                  <div id="tableContainer">
                     <div>
-                        <h3 style="display: inline-block;">이번 주 불량 제품</h3>
+                        <h3 style="display: inline-block;">이번 주 불량 종류 및 개수</h3>
                         <h6 class="text-secondary" id="defectPeriod">20240729 ~ 20240804</h6>
                     </div>
                     <table id="dataTable" class="table">
