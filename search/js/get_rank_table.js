@@ -1,6 +1,6 @@
-// API로부터 데이터 가져오기
-async function fetchData() {
-  const defects_url = 'https://api.npoint.io/7ac4910d8072539aa6ba'
+// API로부터 데이터 가져오기 (순위 테이블용)
+async function fetchRankData() {
+  const defects_url = 'https://api.npoint.io/7745fc738d17063c507d';
   try {
       const response = await fetch(defects_url);
       // 네트워크 응답이 정상인지 확인
@@ -10,12 +10,27 @@ async function fetchData() {
       const data = await response.json(); // JSON 형식으로 변환
       return data;
   } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching rank data:', error);
+  }
+}
+
+function getErrorType(error) {
+  switch (error) {
+      case 'pattern':
+          return '패턴 불량';
+      case 'ink':
+          return '잉크 불량';
+      case 'au':
+          return '금도금 불량';
+      case 'scratch':
+          return '스크레치';
+      default:
+          return '알 수 없음';
   }
 }
 
 // 데이터 처리 및 정렬, 비율 계산
-function processData(data) {
+function processRankData(data) {
   // 모든 값의 총합 계산
   const total = Object.values(data).reduce((sum, value) => sum + value, 0);
 
@@ -30,8 +45,8 @@ function processData(data) {
   }));
 }
 
-// 정렬된 데이터를 기반으로 테이블 업데이트
-function populateTable(data) {
+// 정렬된 데이터를 기반으로 테이블 업데이트 (순위 테이블용)
+function populateRankTable(data) {
   const tableBody = document.getElementById('rank-table').getElementsByTagName('tbody')[0];
   tableBody.innerHTML = ''; // 기존 데이터 초기화
 
@@ -42,15 +57,15 @@ function populateTable(data) {
       const cell2 = row.insertCell(2); // 세 번째 셀 (비율)
       const cell3 = row.insertCell(3); // 네 번째 셀 (값)
 
-      cell0.textContent = index + 1; // 카테고리 이름 설정
-      cell1.textContent = item.category; // 카테고리 이름 설정
+      cell0.textContent = index + 1; // 순위 설정
+      cell1.textContent = getErrorType(item.category); // 카테고리 이름 설정
       cell2.textContent = `${item.proportion}%`; // 비율에 % 기호 추가
       cell3.textContent = item.value; // 값 설정
   });
 }
 
-// 데이터를 가져와서 처리하고 테이블에 표시
-fetchData().then(rawData => {
-  const sortedData = processData(rawData); // 데이터 처리 및 정렬
-  populateTable(sortedData); // 테이블 업데이트
+// 데이터를 가져와서 처리하고 순위 테이블에 표시
+fetchRankData().then(rawData => {
+  const sortedData = processRankData(rawData); // 데이터 처리 및 정렬
+  populateRankTable(sortedData); // 테이블 업데이트
 });
