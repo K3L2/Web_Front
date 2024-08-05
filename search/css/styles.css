@@ -25,6 +25,7 @@ body {
 
 .table {
   width: 100%;
+  text-align: center;
 }
 
 .table-hover tbody tr:hover {
@@ -36,7 +37,7 @@ body {
   color: white;
   padding-top: 12px;
   padding-bottom: 12px;
-  text-align: left;
+  text-align: center;
 }
 
 .table td:first-child,

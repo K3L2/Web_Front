@@ -1,7 +1,7 @@
 // Initialize the pie chart using ECharts
 var pieChart = echarts.init(document.getElementById('pieChart'));
 
-// Set initial chart options
+// Define the chart option
 var option = {
     tooltip: {
         trigger: 'item'
@@ -46,5 +46,5 @@ var option = {
     ]
 };
 
-// Render the chart
+// Set the option and render the chart
 pieChart.setOption(option);
