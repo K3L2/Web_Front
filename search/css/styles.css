@@ -1,0 +1,50 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.datepicker-input {
+  width: 20%; /* 폭을 좀 더 넓게 설정 */
+  display: inline-block;
+  margin-right: 10px;
+}
+
+#searchButton {
+  margin-left: 10px; /* 여백 추가 */
+}
+
+.content {
+  margin-top: 20px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #ddd;
+}
+
+.table thead th {
+  background-color: #331763;
+  color: white;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+}
+
+.table td:first-child,
+.table th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.table td:last-child,
+.table th:last-child {
+  border-radius: 0 10px 10px 0;
+}

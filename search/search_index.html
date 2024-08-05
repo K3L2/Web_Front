@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap 웹페이지</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <!-- 날짜 선택기 및 검색 버튼 -->
+        <div class="row mb-4">
+          <div class="input-group date" data-provide="datepicker">
+            <input type="text" class="form-control">
+            <div class="input-group-addon">
+                <span class="glyphicon glyphicon-th"></span>
+            </div>
+        </div>
+        <div class="input-group date" data-provide="datepicker">
+          <input type="text" class="form-control">
+          <div class="input-group-addon">
+              <span class="glyphicon glyphicon-th"></span>
+          </div>
+      </div>
+            <div class="col-md-2">
+                <button id="search-btn" class="btn btn-primary btn-block">검색</button>
+            </div>
+        </div>
+
+        <!-- 메인 컨테이너 -->
+        <div class="row">
+            <!-- 왼쪽 섹션 -->
+            <div class="col-md-6">
+                <!-- 왼쪽 위: 원차트 -->
+                <div id="pie-chart" style="width: 100%; height: 300px;"></div>
+
+                <!-- 왼쪽 아래: 표 -->
+                <table class="table mt-4">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th colspan="2" class="text-center">Ranking</th>
+                        </tr>
+                        <tr>
+                            <th>순위</th>
+                            <th>항목</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ranking-table-body">
+                        <!-- AJAX로 데이터 채움 -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 오른쪽 섹션: 테이블 -->
+            <div class="col-md-6">
+                <table class="table table-striped">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>제품ID</th>
+                            <th>에러종류</th>
+                            <th>가로길이(mm)</th>
+                            <th>세로길이(mm)</th>
+                            <th>처리상태</th>
+                            <th>발생일</th>
+                        </tr>
+                    </thead>
+                    <tbody id="product-error-table-body">
+                        <!-- AJAX로 데이터 채움 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- 스크립트 파일들 -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
