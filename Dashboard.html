@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인 페이지</title>
+    <title>DashBoard</title>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -23,29 +23,21 @@
     
     <div id="sidebar" class="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">&#10006;</button>
-        <h2>메뉴</h2>
-        <ul>
-            <li><a href="index.html">DashBoard</a></li>
-            <li><a href="menu1.html">Today</a></li>
-            <li><a href="menu2.html">search</a></li>
+        <!-- <h2>메뉴</h2> -->
+        <ul style="margin-top: 2rem;">
+            <li><a href="Dashboard.html">DashBoard</a></li>
+            <li><a href="today.html">Today</a></li>
+            <li><a href="search.html">Search</a></li>
         </ul>
     </div>
 
-    <div id="main-content" class="main-content">
-        <div id="section1" style="display: flex; margin: 1rem 0 2rem 0">
-            <div style="width: 68%">
+    <div id="main-content" class="main-content" style="width: 100%">
+        <div id="section1" style="display: flex; margin: 1rem 0 2rem 0; width: 100%">
+            <div style="width: 100%">
                 <h1 class="chartTitle">주차별 불량 개수</h1>
-                <div id="barChart" style="width: 100%; height: 100%;"></div>
+                <div id="barChart" style="width: 100%; height: 500px;"></div>
             </div>
 
-            <div style="width: 2%; background-color:white; display:block"></div>
-
-            <div id="alarm">
-                <h1 class="chartTitle" style="text-align: center;">
-                    공정 상태 온도계
-                </h1>
-                <div id="gaugeChart" style="width: 100%; height: 500px"></div>
-            </div>
         </div>
         <div id="">
             <h1 class="chartTitle">금주 불량 개수 및 비율</h1>
@@ -58,9 +50,9 @@
                  <div id="tableContainer">
                     <div>
                         <h3 style="display: inline-block;">이번 주 불량 순위</h3>
-                        <h6 class="text-secondary" id="defectPeriod">20240729 ~ 20240804</h6>
+                        <h6 class="text-secondary" id="defectPeriod"><span id="startDate">20240729</span> ~ <span id="endDate">20240804</span></h6>
                     </div>
-                    <table id="dataTable" class="table">
+                    <table id="errorRankTable" class="table">
                         <thead>
                           <tr>
                             <th scope="col">#</th>
@@ -104,12 +96,12 @@
     <script src="toggleBar.js"></script>
     
     <!-- 동적 그래프 ECharts 초기화 스크립트 -->
-    <script src="bar_chart2.js"></script>
+    <script src="dashboard_bar_chart.js"></script>
     
     <!-- 원형 차트 ECharts 초기화 스크립트 -->
-    <script src="pi_chart.js"></script>
+    <script src="dashboard_pi_chart.js"></script>
 
     <!-- 게이지 차트 ECharts 초기화 스크립트 -->
-    <script src="gauge_chart.js"></script>
+    <!-- <script src="gauge_chart.js"></script> -->
 </body>
 </html>

@@ -1,0 +1,48 @@
+var piChartDom = document.getElementById('statePiChart');
+var piChart = echarts.init(piChartDom);
+var piChartOption = {
+    title: {
+        // text: '이번 주차 불량 비율'
+    },
+    tooltip: {
+        trigger: 'item'
+    },
+    legend: {
+        top: '5%',
+        left: 'center'
+    },
+    series: [
+        {
+            name: 'Defect Types',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+                borderRadius: 10,
+                borderColor: '#fff',
+                borderWidth: 2
+            },
+            label: {
+                show: false,
+                position: 'center'
+            },
+            emphasis: {
+                label: {
+                    show: true,
+                    fontSize: 20,
+                    fontWeight: 'bold'
+                }
+            },
+            labelLine: {
+                show: false
+            },
+            data: [
+                { value: 500, name: 'Pattern Error' },
+                { value: 250, name: 'Ink Error' },
+                { value: 150, name: 'Scratch Error' },
+                { value: 100, name: 'Au Error' }
+            ]
+        }
+    ]
+};
+piChart.setOption(piChartOption);

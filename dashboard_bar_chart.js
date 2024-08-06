@@ -1,6 +1,8 @@
 var barChartDom = document.getElementById('barChart');
 var barChart = echarts.init(barChartDom);
 
+let x_axis = ['5월 1주차', '5월 2주차', '5월 3주차', '5월 4주차', '6월 1주차', '6월 2주차', '6월 3주차', '6월 4주차', '7월 1주차', '7월 2주차']
+
 barChartOption = {
     tooltip: {
       trigger: 'axis',
@@ -18,7 +20,7 @@ barChartOption = {
     xAxis: [
       {
         type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        data: x_axis
       }
     ],
     yAxis: [
@@ -34,8 +36,8 @@ barChartOption = {
         emphasis: {
           focus: 'series'
         },
-        // data: [40, 13, 10, 13, 9, 21, 11],
-        data: [40],
+        data: [40, 13, 10, 13, 9, 21, 11],
+        // data: [40],
         barWidth: '45%',
         itemStyle: {
             barBorderRadius: 5,
@@ -49,8 +51,8 @@ barChartOption = {
         emphasis: {
           focus: 'series'
         },
-        // data: [22, 18, 19, 23, 29, 10, 9],
-        data: [22],
+        data: [22, 18, 19, 23, 29, 10, 9],
+        // data: [22],
         itemStyle: {
             // barBorderRadius: 3,
         }
@@ -62,8 +64,8 @@ barChartOption = {
         emphasis: {
           focus: 'series'
         },
-        // data: [6, 11, 24, 17, 10, 15, 17],
-        data: [6],
+        data: [6, 11, 24, 17, 10, 15, 17],
+        // data: [6],
         itemStyle: {
             // barBorderRadius: 3,
         }
@@ -75,8 +77,8 @@ barChartOption = {
         emphasis: {
           focus: 'series'
         },
-        // data: [15, 22, 21, 14, 10, 12, 10],
-        data: [15],
+        data: [15, 22, 21, 14, 10, 12, 10],
+        // data: [15],
         itemStyle: {
             barBorderRadius: 5,
         }
