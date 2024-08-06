@@ -14,6 +14,7 @@ async function fetchRankData() {
   }
 }
 
+// 에러 유형을 사람이 읽을 수 있는 이름으로 변환
 function getErrorType(error) {
   switch (error) {
       case 'pattern':
@@ -68,4 +69,55 @@ function populateRankTable(data) {
 fetchRankData().then(rawData => {
   const sortedData = processRankData(rawData); // 데이터 처리 및 정렬
   populateRankTable(sortedData); // 테이블 업데이트
+
+  // 차트 데이터를 위한 형식으로 변환
+  const chartData = sortedData.map(item => ({
+      value: item.value,
+      name: getErrorType(item.category)
+  }));
+
+  // 원차트 초기화 및 옵션 설정
+  var pieChart = echarts.init(document.getElementById('pieChart'));
+
+  // 차트 옵션 정의
+  var option = {
+      tooltip: {
+          trigger: 'item'
+      },
+      legend: {
+          top: '5%',
+          left: 'center'
+      },
+      series: [
+          {
+              name: '불량 유형',
+              type: 'pie',
+              radius: ['40%', '70%'],
+              avoidLabelOverlap: false,
+              itemStyle: {
+                  borderRadius: 10,
+                  borderColor: '#fff',
+                  borderWidth: 2
+              },
+              label: {
+                  show: false,
+                  position: 'center'
+              },
+              emphasis: {
+                  label: {
+                      show: true,
+                      fontSize: '40',
+                      fontWeight: 'bold'
+                  }
+              },
+              labelLine: {
+                  show: false
+              },
+              data: chartData // 변환된 차트 데이터 적용
+          }
+      ]
+  };
+
+  // 옵션을 차트에 설정하고 렌더링
+  pieChart.setOption(option);
 });
