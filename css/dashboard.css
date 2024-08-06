@@ -103,6 +103,13 @@ body {
     justify-content: space-around;
 }
 
+#table-title {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between; /* 추가 */
+    margin-bottom: 0.3rem;
+}
+
 
 #piChart {
     flex: 1;

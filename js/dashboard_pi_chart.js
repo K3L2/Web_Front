@@ -2,7 +2,7 @@ var chartDom = document.getElementById('piChart');
 var myChart = echarts.init(chartDom);
 var option = {
     title: {
-        text: '이번 주차 불량 비율'
+        // text: '이번 주차 불량 비율'
     },
     tooltip: {
         trigger: 'item'
