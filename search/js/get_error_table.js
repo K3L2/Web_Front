@@ -37,7 +37,7 @@ function populateTable(data) {
         const cell6 = row.insertCell(6); // 일곱 번째 셀 (발생일자)
 
         cell0.textContent = index + 1; // 순번
-        cell1.textContent = item.prodID; // 제품ID
+        cell1.textContent = item.prodid; // 제품ID
         cell2.textContent = item.error_type; // 에러 종류
         cell3.textContent = item.w; // 가로길이
         cell4.textContent = item.h; // 세로길이
