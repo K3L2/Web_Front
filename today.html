@@ -4,27 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메뉴 1 페이지</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <!-- ECharts 라이브러리 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="today.css">
 </head>
 <body>
+    <div id="top-bar">
+        <button class="menu-button" onclick="toggleSidebar()">&#9776; 메뉴</button>
+    </div>
+    
     <div id="sidebar" class="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">&#10006;</button>
-        <h2>메뉴</h2>
-        <ul>
-            <li><a href="index.html">메인 페이지</a></li>
-            <li><a href="menu1.html">메뉴 1</a></li>
-            <li><a href="menu2.html">메뉴 2</a></li>
+        <!-- <h2>메뉴</h2> -->
+        <ul style="margin-top: 2rem;">
+            <li><a href="Dashboard.html">DashBoard</a></li>
+            <li><a href="today.html">Today</a></li>
+            <li><a href="search.html">Search</a></li>
         </ul>
     </div>
 
     <div id="main-content" class="main-content">
-        <button class="open-btn" onclick="toggleSidebar()">&#9776; 메뉴</button>
+        <h1 class="title">금일 불량 상태</h1>
         <div id="section1">
-            <h1>메뉴 1 페이지</h1>
-            <p>여기는 메뉴 1의 내용이 들어갑니다.</p>
+            <div class="left-section">
+                <div id="pattern" class="box">
+                    <h3>Pattern Error</h3>
+                    <div style="display: flex; height: 90%;">
+                        <div class="empty_space"></div>
+                        <div class="gaugechart" id="patternGaugeChart"></div>
+                        <div class="barchart" id="patternBarChart"></div>
+                    </div>
+                    <!-- Box 1 -->
+                </div>
+                <div id="ink" class="box">
+                    <h3>Ink Error</h3>
+                    <div style="display: flex; height: 90%;">
+                        <div class="empty_space"></div>
+                        <div class="gaugechart" id="inkGaugeChart"></div>
+                        <div class="barchart" id="inkBarChart"></div>
+                    </div>
+                    <!-- Box 2 -->
+                </div>
+                <div id="au" class="box">
+                    <h3>Au Error</h3>
+                    <div style="display: flex; height: 90%;">
+                        <div class="empty_space"></div>
+                        <div class="gaugechart" id="auGaugeChart"></div>
+                        <div class="barchart" id="auBarChart"></div>
+                    </div>
+                    <!-- Box 3 -->
+                </div>
+                <div id="scratch" class="box">
+                    <h3>Scratch Error</h3>
+                    <div style="display: flex; height: 90%;">
+                        <div class="empty_space"></div>
+                        <div class="gaugechart" id="scratchGaugeChart"></div>
+                        <div class="barchart" id="scratchBarChart"></div>
+                    </div>
+                    <!-- Box 4 -->
+                </div>
+            </div>
+            <div class="right-section">
+                <div class="box right-box">
+                    <h3>Process State</h3>
+                    <div id="stateGaugeChart">
+
+                    </div>
+                </div>
+                <div class="box right-box">
+                    <h3>Defect rate</h3>
+                    <div id="statePiChart">
+
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <script src="toggleBar.js"></script>
+
+    <script src="today_gauge_chart.js"></script>
+
+    <script src="today_bar_chart.js"></script>
+
+    <script src="today_pi_chart.js"></script>
 </body>
 </html>
