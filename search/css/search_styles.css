@@ -7,7 +7,7 @@ body {
 
 /* 컨테이너 여백 줄이기 */
 .container {
-  margin: 10px auto; /* 상하좌우 여백 조정 */
+  margin: 10px 20px; /* 상하좌우 여백 조정 */
   padding: 5 5px; /* 좌우 패딩 조정 */
 }
 
@@ -23,6 +23,7 @@ body {
 
 .content {
   margin-top: 10px; /* 위쪽 여백 줄이기 */
+  width: 120%;
 }
 
 .table-container {
@@ -188,4 +189,8 @@ body {
 #alarm {
   width: 30%;
   margin-left: 1rem;
+}
+
+.form-inline {
+  margin-top: 20px;
 }
