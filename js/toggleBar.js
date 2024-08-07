@@ -1,3 +1,5 @@
+
+/*
 document.addEventListener("DOMContentLoaded", function() {
     const menuBar = document.getElementById("top-bar");
     const mainContent = document.getElementById('main-content');
@@ -6,14 +8,14 @@ document.addEventListener("DOMContentLoaded", function() {
     document.addEventListener("mousemove", function(event) {
         if (event.clientY < 50) {
             menuBar.classList.add("show-menu");
-            mainContent.style.marginTop = '50px';
+            mainContent.style.marginTop = '60px';
         } else {
             menuBar.classList.remove("show-menu");
-            mainContent.style.marginTop = '0';
+            mainContent.style.marginTop = '0px';
         }
     });
 });
-
+*/
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('open');
