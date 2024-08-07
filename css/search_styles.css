@@ -10,6 +10,11 @@
   /* margin-left: 5px; 왼쪽 여백 줄이기 */
 }
 
+.container {
+  width: 100%;
+  margin: 0;
+}
+
 .content {
   margin-top: 10px; /* 위쪽 여백 줄이기 */
   width: 120%;
@@ -21,6 +26,7 @@
 
 .right-table {
   height: 590px; /* 높이 제한 */
+  width: 100%;
   overflow-y: auto;
 }
 
