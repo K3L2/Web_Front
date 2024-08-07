@@ -9,7 +9,7 @@ var patternBarChart = echarts.init(patternBarChartDom);
 patternBarChartOption = {
     xAxis: {
       type: 'category',
-      data: ['Pattern Error']
+      data: ['패턴 불량 수']
     },
     yAxis: [
         {
@@ -43,7 +43,7 @@ var inkBarChart = echarts.init(inkBarChartDom);
 inkBarChartOption = {
     xAxis: {
       type: 'category',
-      data: ['Ink Error']
+      data: ['잉크 불량 수']
     },
     yAxis: [
         {
@@ -78,7 +78,7 @@ var auBarChart = echarts.init(auBarChartDom);
 auBarChartOption = {
     xAxis: {
       type: 'category',
-      data: ['Au Error']
+      data: ['금도금 불량 수']
     },
     yAxis: [
         {
@@ -113,7 +113,7 @@ var scratchBarChart = echarts.init(scratchBarChartDom);
 scratchBarChartOption = {
     xAxis: {
       type: 'category',
-      data: ['Scratch Error']
+      data: ['스크래치 불량 수']
     },
     yAxis: [
         {

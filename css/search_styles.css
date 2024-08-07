@@ -1,24 +1,13 @@
-body {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-/* 컨테이너 여백 줄이기 */
-.container {
-  margin: 10px 20px; /* 상하좌우 여백 조정 */
-  padding: 5 5px; /* 좌우 패딩 조정 */
-}
-
 .datepicker-input {
   width: 15%;
   display: inline-block;
   margin-right: 5px; /* 오른쪽 여백 줄이기 */
 }
 
-#searchButton {
-  margin-left: 5px; /* 왼쪽 여백 줄이기 */
+#submit-btn {
+  background-color: #1b2b6d;
+  color: white;
+  /* margin-left: 5px; 왼쪽 여백 줄이기 */
 }
 
 .content {
@@ -46,7 +35,7 @@ body {
 }
 
 .table thead th {
-  background-color: #73629f;
+  background-color: #1b2b6d;
   color: white;
   padding-top: 8px; /* 패딩 줄이기 */
   padding-bottom: 8px; /* 패딩 줄이기 */
@@ -62,99 +51,6 @@ body {
 .table td:last-child,
 .table th:last-child {
   border-radius: 0 10px 10px 0;
-}
-
-.sidebar {
-  height: 100%;
-  width: 150px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: #111;
-  padding-top: 20px;
-  transition: 0.3s;
-  transform: translateX(-100%);
-}
-
-.sidebar.open {
-  transform: translateX(0);
-}
-
-.sidebar h2 {
-  margin-top: 2rem;
-  color: white;
-  text-align: center;
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar ul li {
-  padding: 8px;
-  text-align: center;
-}
-
-.sidebar ul li a {
-  color: white;
-  text-decoration: none;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidebar ul li a:hover {
-  background-color: #575757;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  font-size: 20px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-.main-content {
-  margin-top: 1rem;
-  padding: 20px 5px;
-  transition: margin-left 0.3s;
-}
-
-#top-bar {
-  background-color: #111;
-  color: white;
-  padding: 10px 20px;
-  position: fixed;
-  top: 0;
-  width: calc(100%);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#top-bar .menu-button {
-  font-size: 20px;
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-}
-
-#top-bar h1 {
-  margin: 0;
-}
-
-.open-btn {
-  font-size: 20px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: white;
 }
 
 .chart-table-container {
@@ -193,4 +89,11 @@ body {
 
 .form-inline {
   margin-top: 20px;
+}
+
+.contentContainer {
+  overflow: hidden;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
 }

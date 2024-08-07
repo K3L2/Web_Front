@@ -30,7 +30,7 @@ barChartOption = {
     ],
     series: [
       {
-        name: 'Pattern Error',
+        name: '패턴 불량',
         type: 'bar',
         stack: 'Ad',
         emphasis: {
@@ -45,7 +45,7 @@ barChartOption = {
         }
       },
       {
-        name: 'Ink Error',
+        name: '잉크 불량',
         type: 'bar',
         stack: 'Ad',
         emphasis: {
@@ -58,7 +58,7 @@ barChartOption = {
         }
       },
       {
-        name: 'Scratch Error',
+        name: '금도금 불량',
         type: 'bar',
         stack: 'Ad',
         emphasis: {
@@ -71,7 +71,7 @@ barChartOption = {
         }
       },
       {
-        name: 'Au Error',
+        name: '스크래치',
         type: 'bar',
         stack: 'Ad',
         emphasis: {

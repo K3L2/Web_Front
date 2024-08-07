@@ -13,7 +13,7 @@ var option = {
     },
     series: [
         {
-            name: 'Defect Types',
+            name: '불량 종류',
             type: 'pie',
             radius: ['40%', '70%'],
             avoidLabelOverlap: false,
@@ -37,10 +37,10 @@ var option = {
                 show: false
             },
             data: [
-                { value: 500, name: 'Pattern Error' },
-                { value: 250, name: 'Ink Error' },
-                { value: 150, name: 'Scratch Error' },
-                { value: 100, name: 'Au Error' }
+                { value: 500, name: '패턴 불량' },
+                { value: 250, name: '잉크 불량' },
+                { value: 150, name: '금도금 불량' },
+                { value: 100, name: '스크래치' }
             ]
         }
     ]

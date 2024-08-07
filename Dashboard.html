@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main_style.css">
     <link rel="stylesheet" href="css/dashboard.css">
     
 </head>
@@ -33,65 +34,64 @@
     </div>
 
     <div id="main-content" class="main-content" style="width: 100%">
-        <div id="section1" style="display: flex; margin: 1rem 0 2rem 0; width: 100%">
-            <div style="width: 100%">
-                <h1 class="chartTitle">주차별 불량 개수</h1>
-                <div id="barChart" style="width: 100%; height: 500px;"></div>
-            </div>
-
+        <div id="section1" style="margin: 1rem 0 2rem 0; width: 100%" class="contentContainer">
+          <h3 class="chartTitle">주차별 불량 개수</h3>
+          <div id="barChart" style="width: 100%; height: 500px;"></div>
         </div>
-        <div id="">
-            <h1 class="chartTitle">금주 불량 개수 및 비율</h1>
-            <!-- <p>여기에 두 번째 단락 내용이 들어갑니다.</p> -->
-            <div class="chart-table-container">
-                <!-- 원형 차트를 표시할 div -->
-                <div id="piChart" style="width: 500px; height: 350px;">
-                </div>
-                <!-- 테이블을 추가 -->
-                 <div id="tableContainer">
-                    <div id='table-title'>
-                        <h3>이번 주 불량 순위</h3>
-                        <h6 class="text-secondary" id="defectPeriod"><span id="startDate">20240729</span> ~ <span id="endDate">20240804</span></h6>
-                    </div>
-                    <table id="errorRankTable" class="table">
-                        <thead>
-                          <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">에러 종류</th>
-                            <th scope="col">비율</th>
-                            <th scope="col">총 개수</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>패턴 불량</td>
-                            <td>50%</td>
-                            <td>500</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>잉크 불량</td>
-                            <td>25%</td>
-                            <td>250</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>스크래치 불량</td>
-                            <td>15%</td>
-                            <td>150</td>
-                          </tr>
-                          <tr>
-                            <th scope="row">4</th>
-                            <td>금도금 불량</td>
-                            <td>10%</td>
-                            <td>100</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                 </div>
+        
+        <!-- <p>여기에 두 번째 단락 내용이 들어갑니다.</p> -->
+        <div class="chart-table-container">
+            <!-- 원형 차트를 표시할 div -->
+            <div id="chartContainer" class="contentContainer">
+              <h3>금주 불량 비율</h3>
+              <div id="piChart" style="width: 500px; height: 350px;"></div>
             </div>
-        </div>
+            
+            <!-- 테이블을 추가 -->
+            <div id="tableContainer" class="contentContainer">
+              <div id='table-title'>
+                  <h3 class="chartTitle">금주 불량 순위</h3>
+                  <h6 class="text-secondary" id="defectPeriod"><span id="startDate">20240729</span> ~ <span id="endDate">20240804</span></h6>
+              </div>
+              <div>
+                <table id="errorRankTable" class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">에러 종류</th>
+                      <th scope="col">비율</th>
+                      <th scope="col">총 개수</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>패턴 불량</td>
+                      <td>50%</td>
+                      <td>500</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">2</th>
+                      <td>잉크 불량</td>
+                      <td>25%</td>
+                      <td>250</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">3</th>
+                      <td>스크래치 불량</td>
+                      <td>15%</td>
+                      <td>150</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">4</th>
+                      <td>금도금 불량</td>
+                      <td>10%</td>
+                      <td>100</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
     </div>
 
     <script src="js/toggleBar.js"></script>
