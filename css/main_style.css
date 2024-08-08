@@ -84,7 +84,7 @@ body {
     margin-bottom: 2rem;
     padding: 15px 30px;
     transition: margin-left 0.3s;
-    transition: margin-top 0.3s;
+    /* transition: margin-top 0.3s; */
 }
 
 #top-bar .menu-button {
