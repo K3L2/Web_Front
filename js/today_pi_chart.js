@@ -1,4 +1,4 @@
-var piChartDom = document.getElementById('statePiChart');
+var piChartDom = document.getElementById('defectPiChart');
 var piChart = echarts.init(piChartDom);
 var piChartOption = {
     title: {

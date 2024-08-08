@@ -49,7 +49,14 @@
 
 .contentContainer {
     padding: 20px;
-    /* border: ; */
     background-color: white;
     border-radius: 15px;
+}
+
+.table {
+    font-size: 1.2rem;
+}
+
+table th {
+    font-weight: normal;
 }

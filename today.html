@@ -29,11 +29,11 @@
         <!-- <h2>메뉴</h2> -->
         <ul style="margin-top: 2rem;">
             <li><a href="Dashboard.html">DashBoard</a></li>
-            <li><a href="today.html">Today</a></li>
+            <li style="background-color: rgb(236, 236, 236);"><a href="today.html" style="color: black;">Today</a></li>
             <li><a href="search.html">Search</a></li>
         </ul>
     </div>
-    
+
     <div id="main-content" class="main-content">
         <h3 class="title">금일 불량 상태</h3>
         <div id="section1">
@@ -82,9 +82,9 @@
 
                     </div>
                 </div>
-                <div class="box right-box">
+                <div class="box right-box" style="margin-top: 20px;">
                     <h3>불량 비율</h3>
-                    <div id="statePiChart">
+                    <div id="defectPiChart">
 
                     </div>
                 </div>
@@ -98,26 +98,10 @@
 
     <script src="js/today_bar_chart.js"></script>
 
-    <script src="js/today_pi_chart.js"></script>
+    <!-- <script src="js/today_pi_chart.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function() {
-            // getTodayDefects
-            // 오늘 전체 불량 개수 (pie Chart를 위함)
-            $.ajax({
-                url: '13.125.18.156/getTodayDefects', // 요청을 보낼 URI
-                method: 'GET',
-                dataType: 'json', // 반환받는 데이터의 타입을 JSON으로 지정
-                success: function(response) {
-                    // 요청이 성공적으로 완료되었을 때 실행할 코드
-                    console.log(response); // JSON 데이터를 콘솔에 출력
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    // 요청이 실패했을 때 실행할 코드
-                    console.error('AJAX 요청 실패:', textStatus, errorThrown);
-                }
-            });
-        });
-    </script>
+    
+    <script src="js/today_ajax.js"></script>
+
 </body>
 </html>

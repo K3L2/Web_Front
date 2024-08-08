@@ -1,3 +1,5 @@
+const BORDER_RADIUS = 3
+
 var barChartDom = document.getElementById('barChart');
 var barChart = echarts.init(barChartDom);
 
@@ -40,7 +42,7 @@ barChartOption = {
         // data: [40],
         barWidth: '45%',
         itemStyle: {
-            barBorderRadius: 5,
+            barBorderRadius: BORDER_RADIUS,
             // color: '#91cc75'
         }
       },
@@ -54,7 +56,7 @@ barChartOption = {
         data: [22, 18, 19, 23, 29, 10, 9],
         // data: [22],
         itemStyle: {
-            // barBorderRadius: 3,
+            barBorderRadius: BORDER_RADIUS,
         }
       },
       {
@@ -67,7 +69,7 @@ barChartOption = {
         data: [6, 11, 24, 17, 10, 15, 17],
         // data: [6],
         itemStyle: {
-            // barBorderRadius: 3,
+            barBorderRadius: BORDER_RADIUS,
         }
       },
       {
@@ -80,7 +82,7 @@ barChartOption = {
         data: [15, 22, 21, 14, 10, 12, 10],
         // data: [15],
         itemStyle: {
-            barBorderRadius: 5,
+            barBorderRadius: BORDER_RADIUS,
         }
       }
     ]

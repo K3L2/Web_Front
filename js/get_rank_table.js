@@ -24,7 +24,7 @@ function getErrorType(error) {
       case 'au':
           return '금도금 불량';
       case 'scratch':
-          return '스크레치';
+          return '스크래치';
       default:
           return '알 수 없음';
   }
@@ -34,7 +34,7 @@ function getErrorType(error) {
 function processRankData(data) {
   // 모든 값의 총합 계산
   const total = Object.values(data).reduce((sum, value) => sum + value, 0);
-
+    // console.log(data);
   // 객체를 배열로 변환 후 값에 따라 내림차순으로 정렬
   const sortedData = Object.entries(data).sort((a, b) => b[1] - a[1]);
 
@@ -67,7 +67,12 @@ function populateRankTable(data) {
 
 // 데이터를 가져와서 처리하고 순위 테이블에 표시
 fetchRankData().then(rawData => {
+
+    // console.log(rawData);
   const sortedData = processRankData(rawData); // 데이터 처리 및 정렬
+
+  console.log(sortedData);
+
   populateRankTable(sortedData); // 테이블 업데이트
 
   // 차트 데이터를 위한 형식으로 변환
@@ -75,6 +80,16 @@ fetchRankData().then(rawData => {
       value: item.value,
       name: getErrorType(item.category)
   }));
+
+  const order = ['패턴 불량', '잉크 불량', '금도금 불량', '스크래치'];
+
+    // 객체 배열을 정렬
+    chartData.sort((a, b) => {
+        return order.indexOf(a.name) - order.indexOf(b.name);
+    });
+
+    console.log(chartData)
+
 
   // 원차트 초기화 및 옵션 설정
   var pieChart = echarts.init(document.getElementById('pieChart'));

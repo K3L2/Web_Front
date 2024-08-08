@@ -1,7 +1,8 @@
 body {
     background-color: #f1f1f1;
     font-family: "Do Hyeon", sans-serif;
-    font-weight: 400;
+    /* font-weight: 400; */
+    font-weight: 100;
     font-style: normal;
 }
 
@@ -52,6 +53,7 @@ body {
 }
 
 .sidebar ul li {
+    font-size: 1.3rem;
     /* padding: 15px 8px; */
     text-align: center;
 }
@@ -65,7 +67,7 @@ body {
 }
 
 .sidebar ul li:hover {
-    background-color: #5d609b;
+    background-color: #3b44ec;
 }
 
 .close-btn {
@@ -97,4 +99,8 @@ body {
 
 #top-bar h1 {
     margin: 0;
+}
+
+table th {
+    font-weight: normal;
 }
