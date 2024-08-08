@@ -7,3 +7,5 @@ MES Web Page Frontend
 20240805 : today.html implementation
 
 20240806 : Done web front design implementation
+
+20240808 : Font Change
