@@ -1,8 +1,30 @@
 $(document).ready(function() {
     
     getTodayDefects();
+    getTodayProductDefects();
 
 });
+
+// getTodayProductDefects
+function getTodayProductDefects() {
+    const defect_url = 'https://api.npoint.io/56bd09cbc0c208250a77'
+
+    $.ajax({
+        url: defect_url, // 요청을 보낼 URI
+        method: 'GET',
+        dataType: 'json', // 반환받는 데이터의 타입을 JSON으로 지정
+        success: function(data) {
+            console.log('금일 불량 제품 수');
+            console.log(data);
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            // 요청이 실패했을 때 실행할 코드
+            console.error('AJAX 요청 실패:', textStatus, errorThrown);
+        }
+    });
+
+}
 
 // getTodayDefects
 function getTodayDefects() {
@@ -30,6 +52,8 @@ function getTodayDefects() {
             });
 
             plotPieChart(chartData)
+
+
         },
         error: function(jqXHR, textStatus, errorThrown) {
             // 요청이 실패했을 때 실행할 코드
@@ -58,7 +82,7 @@ function getErrorType(error) {
 
 
 function plotPieChart(chartData) {
-    console.log(chartData)
+    
     var piChartDom = document.getElementById('defectPiChart');
     var piChart = echarts.init(piChartDom);
     var piChartOption = {
