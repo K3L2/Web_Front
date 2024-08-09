@@ -1,5 +1,6 @@
 let errorCount = [20, 15, 5, 10];
 
+const barColor = '#1b369e'
 
 // pattern Bar Chart
 
@@ -7,6 +8,12 @@ var patternBarChartDom = document.getElementById('patternBarChart');
 var patternBarChart = echarts.init(patternBarChartDom);
 
 patternBarChartOption = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
     xAxis: {
       type: 'category',
       data: ['패턴 불량 수']
@@ -25,10 +32,16 @@ patternBarChartOption = {
         data: [errorCount[0]],
         type: 'bar',
         showBackground: true,
+        emphasis: {
+          focus: 'series'
+        },
         backgroundStyle: {
           color: 'rgba(220, 220, 220, 0.6)'
         },
-        barWidth: '20%'
+        barWidth: '20%',
+        itemStyle:{
+          color: barColor,
+        },
       }
     ]
 };
@@ -41,6 +54,12 @@ var inkBarChartDom = document.getElementById('inkBarChart');
 var inkBarChart = echarts.init(inkBarChartDom);
 
 inkBarChartOption = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
     xAxis: {
       type: 'category',
       data: ['잉크 불량 수']
@@ -62,7 +81,10 @@ inkBarChartOption = {
         backgroundStyle: {
           color: 'rgba(220, 220, 220, 0.6)'
         },
-        barWidth: '20%'
+        barWidth: '20%',
+        itemStyle:{
+          color: barColor,
+        },
       }
     ]
 };
@@ -76,6 +98,12 @@ var auBarChartDom = document.getElementById('auBarChart');
 var auBarChart = echarts.init(auBarChartDom);
 
 auBarChartOption = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
     xAxis: {
       type: 'category',
       data: ['금도금 불량 수']
@@ -97,7 +125,10 @@ auBarChartOption = {
         backgroundStyle: {
           color: 'rgba(220, 220, 220, 0.6)'
         },
-        barWidth: '20%'
+        barWidth: '20%',
+        itemStyle:{
+          color: barColor,
+        },
       }
     ]
 };
@@ -111,6 +142,12 @@ var scratchBarChartDom = document.getElementById('scratchBarChart');
 var scratchBarChart = echarts.init(scratchBarChartDom);
 
 scratchBarChartOption = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
     xAxis: {
       type: 'category',
       data: ['스크래치 불량 수']
@@ -132,7 +169,10 @@ scratchBarChartOption = {
         backgroundStyle: {
           color: 'rgba(220, 220, 220, 0.6)'
         },
-        barWidth: '20%'
+        barWidth: '20%',
+        itemStyle:{
+          color: barColor,
+        },
       }
     ]
 };
