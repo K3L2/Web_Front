@@ -9,3 +9,5 @@ MES Web Page Frontend
 20240806 : Done web front design implementation
 
 20240808 : Font Change
+
+20240809 : Active Graph Plot Implemntation
