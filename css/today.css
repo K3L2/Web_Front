@@ -39,7 +39,6 @@
 .right-box {
     background-color: white;
     text-align: center;
-    display: flex;
     flex-direction: column;
     /* justify-content: center; */
 }
@@ -69,7 +68,7 @@
     height: 80%; /* 고정 비율 설정 */
 }
 
-#statePiChart {
+#defectPiChart {
     width: 100%;
     height: 80%; /* 고정 비율 설정 */
 }
