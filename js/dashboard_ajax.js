@@ -178,11 +178,18 @@ function plotBarChart(chartData) {
     var barChartDom = document.getElementById('barChart');
     var barChart = echarts.init(barChartDom);
 
-    const x_axis = chartData['weeks']
-    const patternData = chartData['pattern']
-    const inkData = chartData['ink']
-    const auData = chartData['au']
-    const scratchData = chartData['scratch']
+    const temp = chartData['weeks'];
+    const patternData = chartData['pattern'];
+    const inkData = chartData['ink'];
+    const auData = chartData['au'];
+    const scratchData = chartData['scratch'];
+
+    let x_axis = []
+
+    temp.forEach(element => {
+        
+        x_axis.push(element + 'W');
+    });
 
     console.log(chartData)
 
