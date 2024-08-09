@@ -1,12 +1,13 @@
 const GAUGE_WIDTH = 15;
 const TICK_DISTANCE = -10;
 const LABEL_DISTANCE = 25;
+const COLOR_BAD = '#eb3d34';
+const COLOR_WARNING = '#fca903';
+const COLOR_GOOD = '#1fde29';
 
 let errorGaugeData = [90, 83, 60, 95]
 
 let stateGaugeData = 95
-
-// Pattern Gauge Chart
 
 var patternChartDom = document.getElementById('patternGaugeChart');
 var patternGaugeChart = echarts.init(patternChartDom);
@@ -18,9 +19,9 @@ patternOption = {
           lineStyle: {
             width: GAUGE_WIDTH,
             color: [
-              [0.8, '#eb3d34'],
-              [0.9, '#fca903'],
-              [1, '#1fde29']
+              [0.8, COLOR_BAD],
+              [0.9, COLOR_WARNING],
+              [1, COLOR_GOOD]
             ]
           }
         },
@@ -79,9 +80,9 @@ inkOption = {
           lineStyle: {
             width: GAUGE_WIDTH,
             color: [
-              [0.8, '#eb3d34'],
-              [0.9, '#fca903'],
-              [1, '#1fde29']
+              [0.8, COLOR_BAD],
+              [0.9, COLOR_WARNING],
+              [1, COLOR_GOOD]
             ]
           }
         },
@@ -142,9 +143,9 @@ auOption = {
           lineStyle: {
             width: GAUGE_WIDTH,
             color: [
-              [0.8, '#eb3d34'],
-              [0.9, '#fca903'],
-              [1, '#1fde29']
+              [0.8, COLOR_BAD],
+              [0.9, COLOR_WARNING],
+              [1, COLOR_GOOD]
             ]
           }
         },
@@ -205,9 +206,9 @@ scratchOption = {
           lineStyle: {
             width: GAUGE_WIDTH,
             color: [
-              [0.8, '#eb3d34'],
-              [0.9, '#fca903'],
-              [1, '#1fde29']
+              [0.8, COLOR_BAD],
+              [0.9, COLOR_WARNING],
+              [1, COLOR_GOOD]
             ]
           }
         },
@@ -265,9 +266,9 @@ stateOption = {
           lineStyle: {
             width: GAUGE_WIDTH,
             color: [
-              [0.8, '#eb3d34'],
-              [0.9, '#fca903'],
-              [1, '#1fde29']
+              [0.8, COLOR_BAD],
+              [0.9, COLOR_WARNING],
+              [1, COLOR_GOOD]
             ]
           }
         },
@@ -372,4 +373,4 @@ setInterval(function () {
           }
         ]
       });
-}, 2000);
+}, 5000);

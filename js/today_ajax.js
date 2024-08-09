@@ -17,6 +17,12 @@ function getTodayProductDefects() {
             console.log('금일 불량 제품 수');
             console.log(data);
 
+            const chartData = getGaugeChartData(data);
+            
+            console.log(chartData);
+
+            plotGaugeChart(chartData);
+
         },
         error: function(jqXHR, textStatus, errorThrown) {
             // 요청이 실패했을 때 실행할 코드
@@ -25,6 +31,8 @@ function getTodayProductDefects() {
     });
 
 }
+
+
 
 // getTodayDefects
 function getTodayDefects() {
@@ -50,14 +58,17 @@ function getTodayDefects() {
             chartData.sort((a, b) => {
                 return order.indexOf(a.name) - order.indexOf(b.name);
             });
-            console.log(chartData)
+            // console.log(chartData)
             plotPieChart(chartData)
 
-            console.log(data)
+            
+
+            // Bar Chart Plot 하기 위한 데이터 사전 작업
 
             const total = Object.values(data).reduce((sum, value) => sum + value, 0);
 
             let defectDataArray = [];
+
             const orderedKeys = ["pattern", "ink", "au", "scratch"];
 
             orderedKeys.forEach(key => {
@@ -80,6 +91,452 @@ function getTodayDefects() {
 }
 
 
+function getGaugeChartData(data) {
+
+    // {
+    //     "au_product": 110,
+    //     "ink_product": 90,
+    //     "total_product": 10000,
+    //     "pattern_product": 170,
+    //     "scratch_product": 130
+    //  }
+
+    const totalProductCount = data['total_product'];
+
+    let defectProductDataArray = []
+
+    const orderedKeys = ["pattern_product", "ink_product", "au_product", "scratch_product"];
+
+    orderedKeys.forEach(key => {
+        defectProductDataArray.push(data[key]);
+    });
+
+    // console.log(defectProductDataArray);
+
+    const totalDefectCount = defectProductDataArray.reduce((sum, value) => sum + value, 0)
+
+    // console.log(totalDefectCount);
+
+    // processState = (1 - (data[]))
+
+    let errorProductRateArray = []
+
+    defectProductDataArray.forEach((item) => {
+        // item : defectProduct 개수가 들어옴
+
+        const defectRate = (item / totalProductCount);
+        let temp = 1 - defectRate;
+        let defectGrade = Number.parseFloat(temp * 100).toFixed(2);
+
+        errorProductRateArray.push(defectGrade);
+    });
+
+    // console.log(errorProductRateArray);
+
+    /*
+
+        chartData = {
+            'totalProductData' : gaugeData(1 - (errorProduct / total))
+            'errorProductData' : [1 - (pattern / total)]
+        }
+
+    */
+    const processStateGrade = Number.parseFloat((1 - (totalDefectCount / totalProductCount)) * 100).toFixed(2);
+    
+    // console.log(processStateGrade);
+
+    const chartData = {
+        'totalProductData' : processStateGrade,
+        'errorProductData' : errorProductRateArray
+    }
+
+    return chartData;
+}
+
+
+function plotGaugeChart(chartData) {
+
+    const GAUGE_WIDTH = 15;
+    const TICK_DISTANCE = -10;
+    const LABEL_DISTANCE = 25;
+    const COLOR_BAD = '#eb3d34';
+    const COLOR_WARNING = '#fca903';
+    const COLOR_GOOD = '#1fde29';
+
+    let errorGaugeData = chartData['errorProductData'];
+
+    let stateGaugeData = chartData['totalProductData'];
+
+    console.log(errorGaugeData);
+    console.log(stateGaugeData);
+
+    var patternChartDom = document.getElementById('patternGaugeChart');
+    var patternGaugeChart = echarts.init(patternChartDom);
+    patternOption = {
+        series: [
+        {
+            type: 'gauge',
+            axisLine: {
+            lineStyle: {
+                width: GAUGE_WIDTH,
+                color: [
+                [0.8, COLOR_BAD],
+                [0.9, COLOR_WARNING],
+                [1, COLOR_GOOD]
+                ]
+            }
+            },
+            pointer: {
+            itemStyle: {
+                color: 'auto'
+            }
+            },
+            axisTick: {
+            distance: TICK_DISTANCE,
+            length: 8,
+            lineStyle: {
+                color: '#fff',
+                width: 2
+            }
+            },
+            splitLine: {
+            distance: -20,
+            length: 20,
+            lineStyle: {
+                color: '#fff',
+                width: 4
+            }
+            },
+            axisLabel: {
+            color: 'inherit',
+            distance: LABEL_DISTANCE,
+            fontSize: 15
+            },
+            detail: {
+            valueAnimation: true,
+            formatter: '{value}점',
+            color: 'inherit',
+            fontSize: 14
+            },
+            data: [
+            {
+                value: errorGaugeData[0]
+            }
+            ]
+        }
+        ]
+    };
+    patternGaugeChart.setOption(patternOption);
+
+
+    // Ink Gauge Chart
+
+    var inkChartDom = document.getElementById('inkGaugeChart');
+    var inkGaugeChart = echarts.init(inkChartDom);
+    inkOption = {
+        series: [
+        {
+            type: 'gauge',
+            axisLine: {
+            lineStyle: {
+                width: GAUGE_WIDTH,
+                color: [
+                [0.8, COLOR_BAD],
+                [0.9, COLOR_WARNING],
+                [1, COLOR_GOOD]
+                ]
+            }
+            },
+            pointer: {
+            itemStyle: {
+                color: 'auto'
+            }
+            },
+            axisTick: {
+            distance: TICK_DISTANCE,
+            length: 8,
+            lineStyle: {
+                color: '#fff',
+                width: 2
+            }
+            },
+            splitLine: {
+            distance: -20,
+            length: 20,
+            lineStyle: {
+                color: '#fff',
+                width: 4
+            }
+            },
+            axisLabel: {
+            color: 'inherit',
+            distance: LABEL_DISTANCE,
+            fontSize: 15
+            },
+            detail: {
+            valueAnimation: true,
+            formatter: '{value}점',
+            color: 'inherit',
+            fontSize: 14
+            },
+            data: [
+            {
+                value: errorGaugeData[1]
+            }
+            ]
+        }
+        ]
+    };
+
+    inkGaugeChart.setOption(inkOption);
+
+
+
+    // Au Gauge Chart
+
+    var auChartDom = document.getElementById('auGaugeChart');
+    var auGaugeChart = echarts.init(auChartDom);
+    auOption = {
+        series: [
+        {
+            type: 'gauge',
+            axisLine: {
+            lineStyle: {
+                width: GAUGE_WIDTH,
+                color: [
+                [0.8, COLOR_BAD],
+                [0.9, COLOR_WARNING],
+                [1, COLOR_GOOD]
+                ]
+            }
+            },
+            pointer: {
+            itemStyle: {
+                color: 'auto'
+            }
+            },
+            axisTick: {
+            distance: TICK_DISTANCE,
+            length: 8,
+            lineStyle: {
+                color: '#fff',
+                width: 2
+            }
+            },
+            splitLine: {
+            distance: -20,
+            length: 20,
+            lineStyle: {
+                color: '#fff',
+                width: 4
+            }
+            },
+            axisLabel: {
+            color: 'inherit',
+            distance: LABEL_DISTANCE,
+            fontSize: 15
+            },
+            detail: {
+            valueAnimation: true,
+            formatter: '{value}점',
+            color: 'inherit',
+            fontSize: 14
+            },
+            data: [
+            {
+                value: errorGaugeData[2]
+            }
+            ]
+        }
+        ]
+    };
+
+    auGaugeChart.setOption(auOption);
+
+
+
+    // Scratch Gauge Chart
+
+    var scratchChartDom = document.getElementById('scratchGaugeChart');
+    var scratchGaugeChart = echarts.init(scratchChartDom);
+    scratchOption = {
+        series: [
+        {
+            type: 'gauge',
+            axisLine: {
+            lineStyle: {
+                width: GAUGE_WIDTH,
+                color: [
+                [0.8, COLOR_BAD],
+                [0.9, COLOR_WARNING],
+                [1, COLOR_GOOD]
+                ]
+            }
+            },
+            pointer: {
+            itemStyle: {
+                color: 'auto'
+            }
+            },
+            axisTick: {
+            distance: TICK_DISTANCE,
+            length: 8,
+            lineStyle: {
+                color: '#fff',
+                width: 2
+            }
+            },
+            splitLine: {
+            distance: -20,
+            length: 20,
+            lineStyle: {
+                color: '#fff',
+                width: 4
+            }
+            },
+            axisLabel: {
+            color: 'inherit',
+            distance: LABEL_DISTANCE,
+            fontSize: 15
+            },
+            detail: {
+            valueAnimation: true,
+            formatter: '{value}점',
+            color: 'inherit',
+            fontSize: 14
+            },
+            data: [
+            {
+                value: errorGaugeData[3]
+            }
+            ]
+        }
+        ]
+    };
+    scratchGaugeChart.setOption(scratchOption);
+
+    // Pattern Gauge Chart
+
+    var stateChartDom = document.getElementById('stateGaugeChart');
+    var stateGaugeChart = echarts.init(stateChartDom);
+    stateOption = {
+        series: [
+        {
+            type: 'gauge',
+            axisLine: {
+            lineStyle: {
+                width: GAUGE_WIDTH,
+                color: [
+                [0.8, COLOR_BAD],
+                [0.9, COLOR_WARNING],
+                [1, COLOR_GOOD]
+                ]
+            }
+            },
+            pointer: {
+            itemStyle: {
+                color: 'auto'
+            }
+            },
+            axisTick: {
+            distance: TICK_DISTANCE,
+            length: 8,
+            lineStyle: {
+                color: '#fff',
+                width: 2
+            }
+            },
+            splitLine: {
+            distance: -20,
+            length: 20,
+            lineStyle: {
+                color: '#fff',
+                width: 4
+            }
+            },
+            axisLabel: {
+            color: 'inherit',
+            distance: LABEL_DISTANCE,
+            fontSize: 15
+            },
+            detail: {
+            valueAnimation: true,
+            formatter: '{value}점',
+            color: 'inherit',
+            fontSize: 14
+            },
+            data: [
+            {
+                value: stateGaugeData
+            }
+            ]
+        }
+        ]
+    };
+    stateGaugeChart.setOption(stateOption);
+
+
+
+
+    setInterval(function () {
+        patternGaugeChart.setOption({
+        series: [
+            {
+            data: [
+                {
+                value: +(Math.random() * 100).toFixed()
+                }
+            ]
+            }
+        ]
+        });
+        inkGaugeChart.setOption({
+            series: [
+            {
+                data: [
+                {
+                    value: +(Math.random() * 100).toFixed()
+                }
+                ]
+            }
+            ]
+        });
+        auGaugeChart.setOption({
+            series: [
+            {
+                data: [
+                {
+                    value: +(Math.random() * 100).toFixed()
+                }
+                ]
+            }
+            ]
+        });
+        scratchGaugeChart.setOption({
+            series: [
+            {
+                data: [
+                {
+                    value: +(Math.random() * 100).toFixed()
+                }
+                ]
+            }
+            ]
+        });
+        stateGaugeChart.setOption({
+            series: [
+            {
+                data: [
+                {
+                    value: +(Math.random() * 100).toFixed()
+                }
+                ]
+            }
+            ]
+        });
+    }, 5000);
+
+}
 
 // 에러 유형을 사람이 읽을 수 있는 이름으로 변환
 function getErrorType(error) {
@@ -97,6 +554,8 @@ function getErrorType(error) {
     }
   }
 
+
+//  PieChart Plot용 함수
 
 function plotPieChart(chartData) {
     
@@ -145,6 +604,10 @@ function plotPieChart(chartData) {
     piChart.setOption(piChartOption);
 }
 
+
+
+// 입력 받은 data 처리용 함수
+
 function processRankData(data) {
     // 모든 값의 총합 계산
 
@@ -160,6 +623,11 @@ function processRankData(data) {
         proportion: ((value / total) * 100).toFixed(1) // 백분율 계산 후 소수점 1자리로 포맷
     }));
 }
+
+
+
+
+// BarChart Plot
 
 function plotBarChart(chartData) {
 
