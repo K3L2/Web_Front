@@ -6,6 +6,7 @@ $(document).ready(function() {
 
 });
 
+
 // 이번 주 불량 데이터 받아오기
 
 function getThisWeekDefects() {

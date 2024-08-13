@@ -7,6 +7,8 @@ $(document).ready(function() {
 
 // getTodayProductDefects
 function getTodayProductDefects() {
+
+    // 수정 해야할 부분
     const defect_url = 'https://api.npoint.io/56bd09cbc0c208250a77'
 
     $.ajax({
@@ -36,6 +38,8 @@ function getTodayProductDefects() {
 
 // getTodayDefects
 function getTodayDefects() {
+
+    // 수정 해야할 부분
     const todayURL = 'https://api.npoint.io/14cef19185a6253c3828'
 
     // 오늘 전체 불량 개수 (pie Chart를 위함)

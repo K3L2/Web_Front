@@ -1,21 +1,3 @@
-
-/*
-document.addEventListener("DOMContentLoaded", function() {
-    const menuBar = document.getElementById("top-bar");
-    const mainContent = document.getElementById('main-content');
-    
-
-    document.addEventListener("mousemove", function(event) {
-        if (event.clientY < 50) {
-            menuBar.classList.add("show-menu");
-            mainContent.style.marginTop = '60px';
-        } else {
-            menuBar.classList.remove("show-menu");
-            mainContent.style.marginTop = '0px';
-        }
-    });
-});
-*/
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     sidebar.classList.toggle('open');
@@ -30,5 +12,3 @@ function toggleSidebar() {
         topBar.style.left = '0';
     }
 }
-
-
