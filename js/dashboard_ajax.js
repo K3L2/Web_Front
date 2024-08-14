@@ -9,11 +9,11 @@ $(document).ready(function() {
 function getTodayProductDefects() {
 
     // 수정 해야할 부분
-    const defect_url = 'https://api.npoint.io/56bd09cbc0c208250a77'
+    const defect_url = 'http://13.125.18.156/dashboard/getTodayDefects/products'
 
     $.ajax({
         url: defect_url, // 요청을 보낼 URI
-        method: 'GET',
+        type: 'GET',
         dataType: 'json', // 반환받는 데이터의 타입을 JSON으로 지정
         success: function(data) {
             console.log('금일 불량 제품 수');
@@ -40,15 +40,17 @@ function getTodayProductDefects() {
 function getTodayDefects() {
 
     // 수정 해야할 부분
-    const todayURL = 'https://api.npoint.io/14cef19185a6253c3828'
+    const todayURL = 'http://13.125.18.156/dashboard/getTodayDefects'
 
     // 오늘 전체 불량 개수 (pie Chart를 위함)
     $.ajax({
+        type: 'GET',
         url: todayURL, // 요청을 보낼 URI
-        method: 'GET',
-        dataType: 'json', // 반환받는 데이터의 타입을 JSON으로 지정
+        // dataType: 'json', // 반환받는 데이터의 타입을 JSON으로 지정
         success: function(data) {
             
+            console.log(data);
+
             sortedData = processRankData(data);
 
             const chartData = sortedData.map(item => ({

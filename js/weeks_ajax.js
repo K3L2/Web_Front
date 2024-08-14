@@ -11,7 +11,7 @@ $(document).ready(function() {
 
 function getThisWeekDefects() {
 
-    const defects_url = 'https://api.npoint.io/b2dd755114c96da719a0';
+    const defects_url = 'http://13.125.18.156/weeks/getThisWeekDefects';
 
     $.ajax({
         url: defects_url,
@@ -49,7 +49,7 @@ function getThisWeekDefects() {
 
 function getWeeksDefects() {
 
-    const defects_url = 'https://api.npoint.io/6828687e90df68c93246';
+    const defects_url = 'http://13.125.18.156/weeks/getWeeksDefects';
 
     $.ajax({
         url: defects_url,

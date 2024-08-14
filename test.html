@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX GET Request Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>AJAX GET Request Example</h1>
+    <button id="fetchDataBtn">Fetch Data</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#fetchDataBtn').click(function() {
+                $.ajax({
+                    url: 'http://13.125.18.156/dashboard/getTodayDefects', // replace with your target URL
+                    method: 'GET',
+                    success: function(data) {
+                        console.log('Data received:', data);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error('Error fetching data:', textStatus, errorThrown);
+                    }
+                });
+            });
+        });
+        
+    </script>
+</body>
+</html>
