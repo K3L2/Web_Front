@@ -1,91 +1,180 @@
-const BORDER_RADIUS = 3
+let errorCount = [20, 15, 5, 10];
 
-var barChartDom = document.getElementById('barChart');
-var barChart = echarts.init(barChartDom);
+const barColor = '#1b369e'
 
-let x_axis = ['5월 1주차', '5월 2주차', '5월 3주차', '5월 4주차', '6월 1주차', '6월 2주차', '6월 3주차', '6월 4주차', '7월 1주차', '7월 2주차']
+// pattern Bar Chart
 
-barChartOption = {
+var patternBarChartDom = document.getElementById('patternBarChart');
+var patternBarChart = echarts.init(patternBarChartDom);
+
+patternBarChartOption = {
     tooltip: {
       trigger: 'axis',
       axisPointer: {
         type: 'shadow'
       }
     },
-    legend: {},
-    grid: {
-      left: '3%',
-      right: '4%',
-      bottom: '3%',
-      containLabel: true
+    xAxis: {
+      type: 'category',
+      data: ['패턴 불량 수']
     },
-    xAxis: [
-      {
-        type: 'category',
-        data: x_axis
-      }
-    ],
     yAxis: [
-      {
-        type: 'value'
-      }
+        {
+          type: 'value',
+          name: 'TotalDefects', 
+          min: 0,
+          max: 50, // 변수로 해서 추가하면 됨 # ex) totalDefects = 100 
+          show: false
+        }
     ],
     series: [
       {
-        name: '패턴 불량',
+        data: [errorCount[0]],
         type: 'bar',
-        stack: 'Ad',
+        showBackground: true,
         emphasis: {
           focus: 'series'
         },
-        data: [40, 13, 10, 13, 9, 21, 11],
-        // data: [40],
-        barWidth: '45%',
-        itemStyle: {
-            barBorderRadius: BORDER_RADIUS,
-            // color: '#91cc75'
-        }
-      },
-      {
-        name: '잉크 불량',
-        type: 'bar',
-        stack: 'Ad',
-        emphasis: {
-          focus: 'series'
+        backgroundStyle: {
+          color: 'rgba(220, 220, 220, 0.6)'
         },
-        data: [22, 18, 19, 23, 29, 10, 9],
-        // data: [22],
-        itemStyle: {
-            barBorderRadius: BORDER_RADIUS,
-        }
-      },
-      {
-        name: '금도금 불량',
-        type: 'bar',
-        stack: 'Ad',
-        emphasis: {
-          focus: 'series'
+        barWidth: '20%',
+        itemStyle:{
+          color: barColor,
         },
-        data: [6, 11, 24, 17, 10, 15, 17],
-        // data: [6],
-        itemStyle: {
-            barBorderRadius: BORDER_RADIUS,
-        }
-      },
-      {
-        name: '스크래치',
-        type: 'bar',
-        stack: 'Ad',
-        emphasis: {
-          focus: 'series'
-        },
-        data: [15, 22, 21, 14, 10, 12, 10],
-        // data: [15],
-        itemStyle: {
-            barBorderRadius: BORDER_RADIUS,
-        }
       }
     ]
 };
 
-barChart.setOption(barChartOption);
+patternBarChart.setOption(patternBarChartOption);
+
+// ink Bar Chart
+
+var inkBarChartDom = document.getElementById('inkBarChart');
+var inkBarChart = echarts.init(inkBarChartDom);
+
+inkBarChartOption = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    xAxis: {
+      type: 'category',
+      data: ['잉크 불량 수']
+    },
+    yAxis: [
+        {
+          type: 'value',
+          name: 'TotalDefects', 
+          min: 0,
+          max: 50, // 변수로 해서 추가하면 됨 # ex) totalDefects = 100 
+          show: false
+        }
+    ],
+    series: [
+      {
+        data: [errorCount[1]],
+        type: 'bar',
+        showBackground: true,
+        backgroundStyle: {
+          color: 'rgba(220, 220, 220, 0.6)'
+        },
+        barWidth: '20%',
+        itemStyle:{
+          color: barColor,
+        },
+      }
+    ]
+};
+
+inkBarChart.setOption(inkBarChartOption);
+
+
+// au Bar Chart
+
+var auBarChartDom = document.getElementById('auBarChart');
+var auBarChart = echarts.init(auBarChartDom);
+
+auBarChartOption = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    xAxis: {
+      type: 'category',
+      data: ['금도금 불량 수']
+    },
+    yAxis: [
+        {
+          type: 'value',
+          name: 'TotalDefects', 
+          min: 0,
+          max: 50, // 변수로 해서 추가하면 됨 # ex) totalDefects = 100 
+          show: false
+        }
+    ],
+    series: [
+      {
+        data: [errorCount[2]],
+        type: 'bar',
+        showBackground: true,
+        backgroundStyle: {
+          color: 'rgba(220, 220, 220, 0.6)'
+        },
+        barWidth: '20%',
+        itemStyle:{
+          color: barColor,
+        },
+      }
+    ]
+};
+
+auBarChart.setOption(auBarChartOption);
+
+
+// Scratch Bar Chart
+
+var scratchBarChartDom = document.getElementById('scratchBarChart');
+var scratchBarChart = echarts.init(scratchBarChartDom);
+
+scratchBarChartOption = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    xAxis: {
+      type: 'category',
+      data: ['스크래치 불량 수']
+    },
+    yAxis: [
+        {
+          type: 'value',
+          name: 'TotalDefects', 
+          min: 0,
+          max: 50, // 변수로 해서 추가하면 됨 # ex) totalDefects = 100 
+          show: false
+        }
+    ],
+    series: [
+      {
+        data: [errorCount[3]],
+        type: 'bar',
+        showBackground: true,
+        backgroundStyle: {
+          color: 'rgba(220, 220, 220, 0.6)'
+        },
+        barWidth: '20%',
+        itemStyle:{
+          color: barColor,
+        },
+      }
+    ]
+};
+
+scratchBarChart.setOption(scratchBarChartOption);

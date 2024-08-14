@@ -1,6 +1,6 @@
-var piChartDom = document.getElementById('defectPiChart');
-var piChart = echarts.init(piChartDom);
-var piChartOption = {
+var chartDom = document.getElementById('piChart');
+var myChart = echarts.init(chartDom);
+var option = {
     title: {
         // text: '이번 주차 불량 비율'
     },
@@ -29,7 +29,7 @@ var piChartOption = {
             emphasis: {
                 label: {
                     show: true,
-                    fontSize: 20,
+                    fontSize: 40,
                     fontWeight: 'bold'
                 }
             },
@@ -45,4 +45,4 @@ var piChartOption = {
         }
     ]
 };
-piChart.setOption(piChartOption);
+myChart.setOption(option);
