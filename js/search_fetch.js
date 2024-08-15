@@ -23,6 +23,11 @@ async function postData(start, end) {
         const defects_url = 'http://13.125.18.156/search/getSearchDefects';
         const list_defects_url = 'http://13.125.18.156/search/getSearchListDefects'
 
+        // 만약 서버에서 사용시 아래의 uri 변수를 await fetch 함수 뒤에 넣어주면 됩니다 !
+        const defects_uri = '/search/getSearchDefects';
+        const list_defects_uri = '/search/getSearchListDefects'
+
+        // 아래 defects_url을 defects_uri로 바꾸시면 됩니다.
         const defectsResponse = await fetch(defects_url, {
             method: 'POST', // HTTP 메소드 설정
             headers: {
@@ -36,10 +41,16 @@ async function postData(start, end) {
         }
 
         const defectsData = await defectsResponse.json();
+        
+        console.log('getSearchDefect 데이터')
+        console.log(defectsData)
+        
 
         // 페이지 좌측 부분 update
         rankDataAction(defectsData);
 
+
+        // 아래 list_defects_url list_defects_uri 바꾸시면 됩니다.
         const listDefectsResponse = await fetch(list_defects_url, {
             method: 'POST', // HTTP 메소드 설정
             headers: {
@@ -53,6 +64,11 @@ async function postData(start, end) {
         }
         
         const listData = await listDefectsResponse.json(); // JSON 형식으로 변환
+
+        console.log('getSearchDefectList 데이터');
+        console.log(listData);
+        
+
         populateTable(listData); // 테이블 (페이지 우측) 업데이트
 
 

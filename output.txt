@@ -1,0 +1,17 @@
+Web_Front
+¦¢  dashboard.html
+¦¢  search.html
+¦¢  weeks.html
+¦¢  
+¦§¦¡css
+    ¦¢   dashboard.css
+    ¦¢   main_style.css
+    ¦¢   search_styles.css
+    ¦¦¦¡ weeks.css
+¦¦¦¡js
+    ¦¢   dashboard_ajax.js
+    ¦¢   search_fetch.js
+    ¦¢   toggleBar.js
+    ¦¦¦¡ weeks_ajax.js
+
+        

@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>웹페이지 레이아웃</title>
+    <title>Search</title>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <!-- 사용자 정의 CSS -->
-    <link rel="stylesheet" href="css/main_style.css">
-    <link href="css/search_styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/main_style.css">
+    <link href="/css/search_styles.css" rel="stylesheet">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,10 +26,10 @@
     <div id="sidebar" class="sidebar">
         <button class="close-btn" onclick="toggleSidebar()">&#10006;</button>
         <ul style="margin-top: 2rem;">
-            <li><a href="dashboard.html">DashBoard</a></li>
-            <li><a href="weeks.html">Weeks</a></li>
+            <li><a href="/dashboard">DashBoard</a></li>
+            <li><a href="/weeks">Weeks</a></li>
             <!-- 현재 Search Page 이므로 해당 부분에 색을 추가 -->
-            <li style="background-color: rgb(236, 236, 236);"><a href="search.html" style="color:black">Search</a></li>
+            <li style="background-color: rgb(236, 236, 236);"><a href="/search" style="color:black">Search</a></li>
         </ul>
     </div>
     <div id="main-content" class="main-content">
@@ -121,8 +121,8 @@
     <!-- 사용자 정의 스크립트 -->
     <!-- <script src="js/scripts.js"></script>
     <script src="js/pi_chart.js"></script> -->
-    <script src="js/search_fetch.js"></script>
-    <script src="js/toggleBar.js"></script>
+    <script src="/js/search_fetch.js"></script>
+    <script src="/js/toggleBar.js"></script>
 
 </body>
 

@@ -9,7 +9,7 @@ $(document).ready(function() {
 function getTodayProductDefects() {
 
     // 수정 해야할 부분
-    const defect_url = 'http://13.125.18.156/dashboard/getTodayDefects/products'
+    const defect_url = 'http://13.125.18.156:8080/dashboard/getTodayDefects/products'
 
     $.ajax({
         url: defect_url, // 요청을 보낼 URI
@@ -40,7 +40,7 @@ function getTodayProductDefects() {
 function getTodayDefects() {
 
     // 수정 해야할 부분
-    const todayURL = 'http://13.125.18.156/dashboard/getTodayDefects'
+    const todayURL = 'http://13.125.18.156:8080/dashboard/getTodayDefects'
 
     // 오늘 전체 불량 개수 (pie Chart를 위함)
     $.ajax({
